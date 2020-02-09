@@ -38,7 +38,10 @@ class Stock_Analysis ():
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
     
     def showcsv(self):
-        msg.showinfo("DATA FRAME" , str(self.df))
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            msg.showinfo("DATA FRAME" , str(self.df))
 
     
     def closef(self):
@@ -49,12 +52,16 @@ class Stock_Analysis ():
         self.filename = filedialog.askopenfilename(initialdir="/",title="Select csv file",
                                                    filetypes=(("csv files","*.csv"),("all files","*.*")))
         
-        # csv file stracture : Date Open High Low Close Adj Volume
+        # csv file stracture : Date,Open,High,Low,Close,Adj Close,Volume
         if ".csv" in self.filename:
-            msg.showinfo("SUCCESS","CSV FILE ADDED SUCCESSFULLY")
             self.df = pd.read_csv(self.filename)
+            if all([item in self.df.columns for item in ['Date','Open','High','Low','Close','Adj Close','Volume']]) == TRUE:
+                msg.showinfo("SUCCESS","CSV FILE ADDED SUCCESSFULLY")
+            else:
+                self.filename = ""
+                msg.showerror("ERROR" ,"NO PROPER CSV ") 
         else:
-            msg.showerror("ERROR" ,"NO CSV FILE ADDED ") 
+            msg.showerror("ERROR","NO CSV IMPORTED")
 
 
     def exitmenu(self):
