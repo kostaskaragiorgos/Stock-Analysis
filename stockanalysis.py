@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox as msg
+from tkinter import filedialog
 class Stock_Analysis ():
     def __init__(self,master):
         self.master = master
@@ -10,6 +11,7 @@ class Stock_Analysis ():
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu,tearoff = 0)
+        self.file_menu.add_command(label = "Insert a csv",command = self.insert_csv)
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
         self.menu.add_cascade(label = "File",menu=self.file_menu)
         
@@ -26,6 +28,15 @@ class Stock_Analysis ():
         self.master.bind('<Control-F1>',lambda event: self.helpmenu())
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
     
+    def insert_csv(self):
+        self.filename = filedialog.askopenfilename(initialdir="/",title="Select csv file",
+                                                   filetypes=(("csv files","*.csv"),("all files","*.*")))
+        if ".csv" in self.filename:
+            msg.showinfo("SUCCESS","CSV FILE ADDED SUCCESSFULLY")
+        else:
+            msg.showerror("ERROR" ,"NO CSV FILE ADDED ") 
+
+
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
