@@ -38,8 +38,7 @@ class Stock_Analysis ():
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
     
     def showcsv(self):
-        df = pd.read_csv(self.filename)
-        msg.showinfo("DATA FRAME" , str(df))
+        msg.showinfo("DATA FRAME" , str(self.df))
 
     
     def closef(self):
@@ -51,6 +50,7 @@ class Stock_Analysis ():
                                                    filetypes=(("csv files","*.csv"),("all files","*.*")))
         if ".csv" in self.filename:
             msg.showinfo("SUCCESS","CSV FILE ADDED SUCCESSFULLY")
+            self.df = pd.read_csv(self.filename)
         else:
             msg.showerror("ERROR" ,"NO CSV FILE ADDED ") 
 
