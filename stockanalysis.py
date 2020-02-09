@@ -24,6 +24,10 @@ class Stock_Analysis ():
         self.show_menu.add_command(label = "Show csv",command = self.showcsv)
         self.menu.add_cascade(label = "Show", menu = self.show_menu)
 
+        self.range_menu = Menu (self.menu,tearoff = 0)
+        self.range_menu.add_command(label = "Show Date Range")
+        self.menu.add_cascade(label = "Range", menu = self.range_menu)
+
         self.about_menu = Menu(self.menu,tearoff = 0)
         self.about_menu.add_command(label = "About",accelerator= 'Ctrl+I',command=self.aboutmenu)
         self.menu.add_cascade(label="About",menu=self.about_menu)
