@@ -48,6 +48,8 @@ class Stock_Analysis ():
     def insert_csv(self):
         self.filename = filedialog.askopenfilename(initialdir="/",title="Select csv file",
                                                    filetypes=(("csv files","*.csv"),("all files","*.*")))
+        
+        # csv file stracture : Date Open High Low Close Adj Volume
         if ".csv" in self.filename:
             msg.showinfo("SUCCESS","CSV FILE ADDED SUCCESSFULLY")
             self.df = pd.read_csv(self.filename)
