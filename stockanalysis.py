@@ -56,6 +56,10 @@ class Stock_Analysis ():
     def daterange(self):
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            from1= self.df.iloc[0]['Date']
+            to1 =  self.df.iloc[-1]['Date']
+            msg.showinfo("Date Range","From: "+str(from1) +"\nTo: " +str(to1) )
 
 
     def closef(self):
