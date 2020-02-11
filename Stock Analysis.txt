@@ -1,0 +1,22 @@
+File menu
+=============
+Insert a csv
+Close csv
+Exit Alt + F4
+=============
+Show
+=========
+Show csv
+=========
+Range
+===============
+Show Date Range
+===============
+About menu
+==============
+About Ctrl + I
+==============
+Help menu 
+==============
+Help Ctrl + F1
+==============
