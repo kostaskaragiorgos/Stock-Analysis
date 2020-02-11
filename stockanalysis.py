@@ -12,6 +12,8 @@ class Stock_Analysis ():
         self.master.resizable(False,False)
         self.filename = ""
         
+        #menu
+
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu,tearoff = 0)
@@ -25,7 +27,7 @@ class Stock_Analysis ():
         self.menu.add_cascade(label = "Show", menu = self.show_menu)
 
         self.range_menu = Menu (self.menu,tearoff = 0)
-        self.range_menu.add_command(label = "Show Date Range")
+        self.range_menu.add_command(label = "Show Date Range", command = self.daterange)
         self.menu.add_cascade(label = "Range", menu = self.range_menu)
 
         self.about_menu = Menu(self.menu,tearoff = 0)
@@ -42,12 +44,20 @@ class Stock_Analysis ():
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
     
     def showcsv(self):
+
+        """ shows the whole dataset """ 
+
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
         else:
             msg.showinfo("DATA FRAME" , str(self.df))
 
     
+    def daterange(self):
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+
+
     def closef(self):
         pass
 
@@ -74,8 +84,9 @@ class Stock_Analysis ():
     
     def helpmenu(self):
         pass
+
     def aboutmenu(self):
-        pass
+        msg.showinfo("About", "Version 1.0")
 
 def main():
     root=Tk()
