@@ -54,6 +54,7 @@ class Stock_Analysis ():
 
     
     def daterange(self):
+        """ shows the range of dates """
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
         else:
@@ -63,7 +64,11 @@ class Stock_Analysis ():
 
 
     def closef(self):
-        pass
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            self.filename = ""
+            msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
 
 
     def insert_csv(self):
