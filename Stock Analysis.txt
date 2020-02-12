@@ -1,17 +1,17 @@
 File menu
-=============
-Insert a csv
+=====================
+Insert a csv Ctrl + O
 Close csv
 Exit Alt + F4
 =============
 Show
-=========
-Show csv
-=========
+================
+Show csv Alt + S
+================
 Range
-===============
-Show Date Range
-===============
+========================
+Show Date Range Ctrl + D
+========================
 About menu
 ==============
 About Ctrl + I
