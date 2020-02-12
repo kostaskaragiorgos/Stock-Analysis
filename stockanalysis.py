@@ -31,6 +31,7 @@ class Stock_Analysis ():
         self.range_menu.add_command(label = "Show Open Range",command  = self.openrange)
         self.range_menu.add_command(label = "Show High Range", command = self.highrange)
         self.range_menu.add_command(label = "Show Low Range",command = self.lowrange)
+        self.range_menu.add_command(label = "Show Close Range",command = self.closerange)
         self.menu.add_cascade(label = "Range", menu = self.range_menu)
 
         self.about_menu = Menu(self.menu,tearoff = 0)
@@ -96,9 +97,16 @@ class Stock_Analysis ():
             min = self.df['Low'].min()
             msg.showinfo("Low Range", "Max: "+str(max) + "\nMin: " +str(min))
     
+    def closerange(self):
+        """ shows the range of Close """
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            max = self.df['Close'].max()
+            min = self.df['Close'].min()
+            msg.showinfo("Close Range", "Max: "+str(max) + "\nMin: " +str(min))
+    
         
-
-
     def closef(self):
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
