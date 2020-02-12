@@ -29,6 +29,7 @@ class Stock_Analysis ():
         self.range_menu = Menu (self.menu,tearoff = 0)
         self.range_menu.add_command(label = "Show Date Range",accelerator = 'Ctrl + D',command = self.daterange)
         self.range_menu.add_command(label = "Show Open Range",command  = self.openrange)
+        self.range_menu.add_command(label = "Show High Range", command = self.highrange)
         self.menu.add_cascade(label = "Range", menu = self.range_menu)
 
         self.about_menu = Menu(self.menu,tearoff = 0)
@@ -58,7 +59,7 @@ class Stock_Analysis ():
 
     
     def daterange(self):
-        """ shows the range of dates """
+        """ shows the range of Date """
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
         else:
@@ -68,13 +69,22 @@ class Stock_Analysis ():
 
     
     def openrange(self):
-        """ shows the range of open """
+        """ shows the range of Open """
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
         else:
             max = self.df['Open'].max()
             min = self.df['Open'].min()
             msg.showinfo("Open Range","Max: " +str(max) +"\nMin: " +str(min))
+        
+    def highrange(self):
+        """ shows the range of High """
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            max = self.df['High'].max()
+            min = self.df['High'].min()
+            msg.showinfo("High Range", "Max: "+str(max) + "\nMin: " +str(min))
 
 
     def closef(self):
