@@ -13,7 +13,6 @@ class Stock_Analysis ():
         self.filename = ""
         
         #menu
-
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu,tearoff = 0)
@@ -32,6 +31,8 @@ class Stock_Analysis ():
         self.range_menu.add_command(label = "Show High Range", command = self.highrange)
         self.range_menu.add_command(label = "Show Low Range",command = self.lowrange)
         self.range_menu.add_command(label = "Show Close Range",command = self.closerange)
+        self.range_menu.add_command(label = "Show Adj Close Range", command = self.adjcloserange)
+        self.range_menu.add_command(label = "Show Volume Range",command =self.volumerange)
         self.menu.add_cascade(label = "Range", menu = self.range_menu)
 
         self.about_menu = Menu(self.menu,tearoff = 0)
@@ -51,9 +52,7 @@ class Stock_Analysis ():
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
     
     def showcsv(self):
-
         """ shows the whole dataset """ 
-
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
         else:
@@ -105,6 +104,24 @@ class Stock_Analysis ():
             max = self.df['Close'].max()
             min = self.df['Close'].min()
             msg.showinfo("Close Range", "Max: "+str(max) + "\nMin: " +str(min))
+
+    def adjcloserange(self):
+        """ shows the range of Adj Close """
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            max = self.df['Adj Close'].max()
+            min = self.df['Adj Close'].min()
+            msg.showinfo("Adj Close Range", "Max: "+str(max) + "\nMin: " +str(min))
+
+    def volumerange(self):
+        """ shows the range of Volume """
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+        else:
+            max = self.df['Volume'].max()
+            min = self.df['Volume'].min()
+            msg.showinfo("Volume Range", "Max: "+str(max) + "\nMin: " +str(min))
     
         
     def closef(self):
