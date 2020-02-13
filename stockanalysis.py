@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import messagebox as msg
 from tkinter import filedialog
-
 import pandas as pd 
+
 
 class Stock_Analysis ():
     def __init__(self,master):
@@ -23,6 +23,7 @@ class Stock_Analysis ():
 
         self.show_menu = Menu (self.menu,tearoff = 0)
         self.show_menu.add_command(label = "Show csv",accelerator = 'Alt+S',command = self.showcsv)
+        self.show_menu.add_command(label = "Show open graph" , command = self.opengraph)
         self.menu.add_cascade(label = "Show", menu = self.show_menu)
 
         self.range_menu = Menu (self.menu,tearoff = 0)
@@ -56,7 +57,10 @@ class Stock_Analysis ():
         self.master.bind('<Alt-c>',lambda event: self.closerange())
         self.master.bind('<Alt-a>',lambda event: self.adjcloserange())
         self.master.bind('<Alt-v>',lambda event: self.volumerange())
-
+    
+    def opengraph(self):
+        pass
+    
     
     def showcsv(self):
         """ shows the whole dataset """ 
