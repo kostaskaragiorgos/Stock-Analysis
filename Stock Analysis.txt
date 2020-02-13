@@ -11,6 +11,12 @@ Show csv Alt + S
 Range
 ========================
 Show Date Range Ctrl + D
+Show Open Range
+Show High Range
+Show Low Range
+Show Close Range
+Show Adj Close Range
+Show Volume Range
 ========================
 About menu
 ==============
