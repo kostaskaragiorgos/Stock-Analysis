@@ -24,7 +24,12 @@ class Stock_Analysis ():
 
         self.show_menu = Menu (self.menu,tearoff = 0)
         self.show_menu.add_command(label = "Show csv",accelerator = 'Alt+S',command = self.showcsv)
-        self.show_menu.add_command(label = "Show open graph" , command = self.opengraph)
+        self.show_menu.add_command(label = "Show Open Graph" , command = self.opengraph)
+        self.show_menu.add_command(label = "Show High Graph")
+        self.show_menu.add_command(label = "Show Low Graph")
+        self.show_menu.add_command(label = "Show Close Graph")
+        self.show_menu.add_command(label = "Show Adj Close Graph")
+        self.show_menu.add_command(label = "Show Volume Graph")
         self.menu.add_cascade(label = "Show", menu = self.show_menu)
 
         self.range_menu = Menu (self.menu,tearoff = 0)
