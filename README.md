@@ -26,6 +26,11 @@
 <li> Close csv </li>
 <li> Exit Alt + F4 </li>
 <li> Show csv Alt + S </li>
+<li> Show High Graph </li>
+<li> Show Low Graph </li>
+<li> Show Close Graph </li>
+<li> Show Adj Close Graph </li>
+<li> Show Volume Graph </li>
 <li> Show Date Range Ctrl + D </li>
 <li> Show Open Range Alt + O </li>
 <li> Show High Range Alt + H </li>
