@@ -1,5 +1,13 @@
 # Stock-Analysis
 
+## Files
+<ul>
+<li> Stock Analysis.png </li>
+<li> Stock Analysis.txt </li>
+<li> stockanalysis.py </li>
+</ul>
+
+
 ## Dependencies
 
 <ul>

@@ -2,10 +2,7 @@ from tkinter import *
 from tkinter import messagebox as msg
 from tkinter import filedialog
 import pandas as pd 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 
 class Stock_Analysis ():
@@ -66,12 +63,6 @@ class Stock_Analysis ():
         """ shows open graph"""
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
-        else:
-            f = Figure(figsize=(4,5), dpi=100)
-            ax = f.add_subplot(111)
-            ax.plot(self.df['Date'], self.df['Open'])
-            canvas = FigureCanvasTkAgg(f,Tk())
-            canvas.get_tk_widget().pack()
 
         
     
