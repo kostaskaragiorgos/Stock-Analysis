@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import messagebox as msg
 from tkinter import filedialog
 import pandas as pd 
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 class Stock_Analysis ():
@@ -59,8 +61,11 @@ class Stock_Analysis ():
         self.master.bind('<Alt-v>',lambda event: self.volumerange())
     
     def opengraph(self):
-        pass
-    
+        """ shows open graph"""
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+
+        
     
     def showcsv(self):
         """ shows the whole dataset """ 
