@@ -175,7 +175,7 @@ class Stock_Analysis ():
             self.master.destroy()
     
     def helpmenu(self):
-        pass
+        msg.showinfo("Help","Import a csv file and gain info about stocks")
 
     def aboutmenu(self):
         msg.showinfo("About", "Version 1.0")
