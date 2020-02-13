@@ -27,10 +27,10 @@ class Stock_Analysis ():
 
         self.range_menu = Menu (self.menu,tearoff = 0)
         self.range_menu.add_command(label = "Show Date Range",accelerator = 'Ctrl + D',command = self.daterange)
-        self.range_menu.add_command(label = "Show Open Range",command  = self.openrange)
-        self.range_menu.add_command(label = "Show High Range", command = self.highrange)
-        self.range_menu.add_command(label = "Show Low Range",command = self.lowrange)
-        self.range_menu.add_command(label = "Show Close Range",command = self.closerange)
+        self.range_menu.add_command(label = "Show Open Range",accelerator = 'Alt + O',command  = self.openrange)
+        self.range_menu.add_command(label = "Show High Range",accelerator = 'Alt + H' command = self.highrange)
+        self.range_menu.add_command(label = "Show Low Range",accelerator = 'Alt + L',command = self.lowrange)
+        self.range_menu.add_command(label = "Show Close Range",accelerator = 'Alt + C',command = self.closerange)
         self.range_menu.add_command(label = "Show Adj Close Range", command = self.adjcloserange)
         self.range_menu.add_command(label = "Show Volume Range",command =self.volumerange)
         self.menu.add_cascade(label = "Range", menu = self.range_menu)
@@ -50,6 +50,10 @@ class Stock_Analysis ():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: self.helpmenu())
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
+        self.master.bind('<Alt-o>',lambda event: self.openrange())
+        self.master.bind('<Alt-h>',lambda event: self.highrange())
+        self.master.bind('<Alt-l>',lambda event: self.lowrange())
+        self.master.bind('<Alt-c>',lambda event: self.closerange)
     
     def showcsv(self):
         """ shows the whole dataset """ 
