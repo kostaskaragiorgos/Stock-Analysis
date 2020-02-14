@@ -24,12 +24,12 @@ class Stock_Analysis ():
 
         self.show_menu = Menu (self.menu,tearoff = 0)
         self.show_menu.add_command(label = "Show csv",accelerator = 'Alt+S',command = self.showcsv)
-        self.show_menu.add_command(label = "Show Open Graph" , command = self.opengraph)
-        self.show_menu.add_command(label = "Show High Graph" , command = self.highgraph)
-        self.show_menu.add_command(label = "Show Low Graph",command = self.lowgraph)
-        self.show_menu.add_command(label = "Show Close Graph",command = self.closegraph)
-        self.show_menu.add_command(label = "Show Adj Close Graph",command  = self.adjclosegraph)
-        self.show_menu.add_command(label = "Show Volume Graph",command =self.volumegraph)
+        self.show_menu.add_command(label = "Show Open Graph" ,accelerator = 'Alt + T', command = self.opengraph)
+        self.show_menu.add_command(label = "Show High Graph" , accelerator = 'Alt + U',command = self.highgraph)
+        self.show_menu.add_command(label = "Show Low Graph",accelerator = 'Alt + Q',command = self.lowgraph)
+        self.show_menu.add_command(label = "Show Close Graph",accelerator = 'Alt + C',command = self.closegraph)
+        self.show_menu.add_command(label = "Show Adj Close Graph",accelerator = 'Alt + D',command  = self.adjclosegraph)
+        self.show_menu.add_command(label = "Show Volume Graph",accelerator = 'Alt + B',command =self.volumegraph)
         self.menu.add_cascade(label = "Show", menu = self.show_menu)
 
         self.range_menu = Menu (self.menu,tearoff = 0)
@@ -63,6 +63,12 @@ class Stock_Analysis ():
         self.master.bind('<Alt-c>',lambda event: self.closerange())
         self.master.bind('<Alt-a>',lambda event: self.adjcloserange())
         self.master.bind('<Alt-v>',lambda event: self.volumerange())
+        self.master.bind('<Alt-t>',lambda event: self.opengraph())
+        self.master.bind('<Alt-u>',lambda event: self.highgraph())
+        self.master.bind('<Alt-q>',lambda event: self.lowgraph())
+        self.master.bind('<Alt-c>',lambda event: self.closegraph())
+        self.master.bind('<Alt-d>',lambda event: self.adjclosegraph())
+        self.master.bind('<Alt-b>',lambda event: self.volumegraph())
 
     
 
@@ -81,7 +87,6 @@ class Stock_Analysis ():
     
     def lowgraph(self):
         """ shows low graph"""
-        
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
     
