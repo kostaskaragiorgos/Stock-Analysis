@@ -7,12 +7,13 @@ Exit Alt + F4
 Show
 ================
 Show csv Alt + S
-Show High Graph
-Show Low Graph
-Show Close Graph
-Show Adj Close Graph
-Show Volume Graph
-================
+Show Open Graph Alt + T
+Show High Graph Alt + U
+Show Low Graph Alt + Q
+Show Close Graph Alt + C
+Show Adj Close Graph Alt + D
+Show Volume Graph Alt + B
+=========================
 Range
 ========================
 Show Date Range Ctrl + D
