@@ -25,11 +25,11 @@ class Stock_Analysis ():
         self.show_menu = Menu (self.menu,tearoff = 0)
         self.show_menu.add_command(label = "Show csv",accelerator = 'Alt+S',command = self.showcsv)
         self.show_menu.add_command(label = "Show Open Graph" , command = self.opengraph)
-        self.show_menu.add_command(label = "Show High Graph")
-        self.show_menu.add_command(label = "Show Low Graph")
-        self.show_menu.add_command(label = "Show Close Graph")
-        self.show_menu.add_command(label = "Show Adj Close Graph")
-        self.show_menu.add_command(label = "Show Volume Graph")
+        self.show_menu.add_command(label = "Show High Graph" , command = self.highgraph)
+        self.show_menu.add_command(label = "Show Low Graph",command = self.lowgraph)
+        self.show_menu.add_command(label = "Show Close Graph",command = self.closegraph)
+        self.show_menu.add_command(label = "Show Adj Close Graph",command  = self.adjclosegraph)
+        self.show_menu.add_command(label = "Show Volume Graph",command =self.volumegraph)
         self.menu.add_cascade(label = "Show", menu = self.show_menu)
 
         self.range_menu = Menu (self.menu,tearoff = 0)
@@ -63,7 +63,41 @@ class Stock_Analysis ():
         self.master.bind('<Alt-c>',lambda event: self.closerange())
         self.master.bind('<Alt-a>',lambda event: self.adjcloserange())
         self.master.bind('<Alt-v>',lambda event: self.volumerange())
+
     
+
+    def volumegraph(self):
+        """ shows volume graph """
+
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+
+    def highgraph(self):
+        """ shows high graph """
+
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+ 
+    
+    def lowgraph(self):
+        """ shows low graph"""
+        
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+    
+    def closegraph(self):
+        """ shows close graph"""
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+
+
+
+    def adjclosegraph(self):
+        """ shows adj close graph"""
+        if self.filename == "":
+            msg.showinfo("ERROR","NO CSV FILE")
+    
+
     def opengraph(self):
         """ shows open graph"""
         if self.filename == "":
@@ -145,6 +179,7 @@ class Stock_Analysis ():
     
         
     def closef(self):
+        """ closes file """ 
         if self.filename == "":
             msg.showinfo("ERROR","NO CSV FILE")
         else:
