@@ -1,9 +1,7 @@
-"""
-Analysis of stocks 
-"""
+"""Analysis of stocks"""
 from tkinter import Menu, messagebox as msg, filedialog, Tk
 import pandas as pd
-class Stock_Analysis():
+class StockAnalysis():
     """ stock analysis class """
     def __init__(self, master):
         self.master = master
@@ -20,7 +18,7 @@ class Stock_Analysis():
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
 
-        self.show_menu = Menu (self.menu, tearoff=0)
+        self.show_menu = Menu(self.menu, tearoff=0)
         self.show_menu.add_command(label="Show csv", accelerator='Alt+S', command=self.showcsv)
         self.show_menu.add_command(label="Show Open Graph", accelerator='Alt + T', command=self.opengraph)
         self.show_menu.add_command(label="Show High Graph", accelerator='Alt + U', command=self.highgraph)
@@ -30,7 +28,7 @@ class Stock_Analysis():
         self.show_menu.add_command(label="Show Volume Graph", accelerator='Alt + B', command=self.volumegraph)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
-        self.range_menu = Menu (self.menu, tearoff=0)
+        self.range_menu = Menu(self.menu, tearoff=0)
         self.range_menu.add_command(label="Show Date Range", accelerator='Ctrl + D', command=self.daterange)
         self.range_menu.add_command(label="Show Open Range", accelerator='Alt + O', command=self.openrange)
         self.range_menu.add_command(label="Show High Range", accelerator='Alt + H', command=self.highrange)
@@ -54,7 +52,7 @@ class Stock_Analysis():
         self.master.bind('<Control-d>', lambda event: self.daterange())
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: self.helpmenu())
-        self.master.bind('<Control-i>', lambda event:self.aboutmenu())
+        self.master.bind('<Control-i>', lambda event: self.aboutmenu())
         self.master.bind('<Alt-o>', lambda event: self.openrange())
         self.master.bind('<Alt-h>', lambda event: self.highrange())
         self.master.bind('<Alt-l>', lambda event: self.lowrange())
@@ -103,11 +101,9 @@ class Stock_Analysis():
         if self.filename == "":
             msg.showinfo("ERROR", "NO CSV FILE")
         else:
-            from1= self.df.iloc[0]['Date']
-            to1 =  self.df.iloc[-1]['Date']
-            msg.showinfo("Date Range", "From: "+str(from1) +"\nTo: " +str(to1) )
-
-    
+            from1 = self.df.iloc[0]['Date']
+            to1 = self.df.iloc[-1]['Date']
+            msg.showinfo("Date Range", "From: "+str(from1) +"\nTo: " +str(to1))    
     def openrange(self):
         """ shows the range of Open """
         if self.filename == "":
@@ -175,8 +171,8 @@ class Stock_Analysis():
         """ insert csv function """
         # csv file stracture : Date,Open,High,Low,Close,Adj Close,Volume        
         if self.filename == "":
-            self.filename = filedialog.askopenfilename(initialdir="/",title="Select csv file", 
-                                                   filetypes=(("csv files", "*.csv"),("all files", "*.*")))
+            self.filename = filedialog.askopenfilename(initialdir="/", title="Select csv file", 
+                                                    filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
             if ".csv" in self.filename:
                 self.df = pd.read_csv(self.filename)
                 if all([item in self.df.columns for item in ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']]) == True:
@@ -201,7 +197,7 @@ class Stock_Analysis():
 
 def main():
     """ main function"""
-    root=Tk()
+    root = Tk()
     Stock_Analysis(root)
     root.mainloop()
     
