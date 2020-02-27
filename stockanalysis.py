@@ -216,6 +216,7 @@ class StockAnalysis():
                     self.filename = ""
                     msg.showerror("ERROR", "NO PROPER CSV ")
             else:
+                self.filename = ""
                 msg.showerror("ERROR", "NO CSV IMPORTED")
         else:
             msg.showerror("Error", " A CSV FILE IS ALREADY OPEN")
@@ -229,7 +230,6 @@ class StockAnalysis():
     def aboutmenu(self):
         """ about menu function"""
         msg.showinfo("About", "Version 1.0")
-
 def main():
     """ main function"""
     root = Tk()
