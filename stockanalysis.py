@@ -58,7 +58,8 @@ class StockAnalysis():
         self.range_menu.add_command(label="Show Adj Close Range", 
                                     accelerator='Alt + A', 
                                     command=self.adjcloserange)
-        self.range_menu.add_command(label="Show Volume Range", accelerator='Alt + V', command=self.volumerange)
+        self.range_menu.add_command(label="Show Volume Range",
+                                    accelerator='Alt + V', command=self.volumerange)
         self.menu.add_cascade(label="Range", menu=self.range_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
