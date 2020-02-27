@@ -20,6 +20,7 @@ class StockAnalysis():
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
+        self.show_menu.add_command(label = "Show Graph Summary",command =self.showgraphsummary)
         self.show_menu.add_command(label="Show csv",
                                    accelerator='Alt+S', command=self.showcsv)
         self.show_menu.add_command(label="Show Open Graph",
@@ -76,6 +77,12 @@ class StockAnalysis():
         self.master.bind('<Alt-c>', lambda event: self.closegraph())
         self.master.bind('<Alt-d>', lambda event: self.adjclosegraph())
         self.master.bind('<Alt-b>', lambda event: self.volumegraph())
+    def showgraphsummary(self):
+        if self.filename == "":
+            msg.showerror("ERROR","NO CSV FILE")
+        else:
+            self.df.plot()
+            plt.show()
     def volumegraph(self):
         """ shows volume graph """
         if self.filename == "":
