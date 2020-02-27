@@ -94,6 +94,9 @@ class StockAnalysis():
         """ shows low graph"""
         if self.filename == "":
             msg.showinfo("ERROR", "NO CSV FILE")
+        else:
+            self.df['Low'].plot()
+            plt.show()
     def closegraph(self):
         """ shows close graph"""
         if self.filename == "":
