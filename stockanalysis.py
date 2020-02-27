@@ -101,6 +101,9 @@ class StockAnalysis():
         """ shows close graph"""
         if self.filename == "":
             msg.showinfo("ERROR", "NO CSV FILE")
+        else:
+            self.df['Close'].plot()
+            plt.show()
     def adjclosegraph(self):
         """ shows adj close graph"""
         if self.filename == "":
