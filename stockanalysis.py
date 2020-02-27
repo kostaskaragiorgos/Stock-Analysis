@@ -17,10 +17,12 @@ class StockAnalysis():
                                    accelerator='Ctrl + O', command=self.insert_csv)
         self.file_menu.add_command(label="Close csv",
                                    command=self.closef)
-        self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
+        self.file_menu.add_command(label="Exit",
+                                   accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
-        self.show_menu.add_command(label = "Show Graph Summary",command =self.showgraphsummary)
+        self.show_menu.add_command(label="Show Graph Summary", accelerator='Ctrl+S',
+                                   command=self.showgraphsummary)
         self.show_menu.add_command(label="Show csv",
                                    accelerator='Alt+S', command=self.showcsv)
         self.show_menu.add_command(label="Show Open Graph",
@@ -77,64 +79,66 @@ class StockAnalysis():
         self.master.bind('<Alt-c>', lambda event: self.closegraph())
         self.master.bind('<Alt-d>', lambda event: self.adjclosegraph())
         self.master.bind('<Alt-b>', lambda event: self.volumegraph())
+        self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
     def showgraphsummary(self):
+        """ shows summary graph """
         if self.filename == "":
-            msg.showerror("ERROR","NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df.plot()
             plt.show()
     def volumegraph(self):
         """ shows volume graph """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df['Volume'].plot()
             plt.show()
     def highgraph(self):
         """ shows high graph """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df['High'].plot()
             plt.show()
     def lowgraph(self):
         """ shows low graph"""
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df['Low'].plot()
             plt.show()
     def closegraph(self):
         """ shows close graph"""
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df['Close'].plot()
             plt.show()
     def adjclosegraph(self):
         """ shows adj close graph"""
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df['Adj Close'].plot()
             plt.show()
     def opengraph(self):
         """ shows open graph"""
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.df['Open'].plot()
             plt.show()
     def showcsv(self):
         """ shows the whole dataset """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             msg.showinfo("DATA FRAME", str(self.df))
     def daterange(self):
         """ shows the range of Date """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             from1 = self.df.iloc[0]['Date']
             to1 = self.df.iloc[-1]['Date']
@@ -142,7 +146,7 @@ class StockAnalysis():
     def openrange(self):
         """ shows the range of Open """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             max = self.df['Open'].max()
             min = self.df['Open'].min()
@@ -150,7 +154,7 @@ class StockAnalysis():
     def highrange(self):
         """ shows the range of High """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             max = self.df['High'].max()
             min = self.df['High'].min()
@@ -158,7 +162,7 @@ class StockAnalysis():
     def lowrange(self):
         """ shows the range of Low """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             max = self.df['Low'].max()
             min = self.df['Low'].min()
@@ -166,7 +170,7 @@ class StockAnalysis():
     def closerange(self):
         """ shows the range of Close """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             max = self.df['Close'].max()
             min = self.df['Close'].min()
@@ -175,7 +179,7 @@ class StockAnalysis():
     def adjcloserange(self):
         """ shows the range of Adj Close """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             max = self.df['Adj Close'].max()
             min = self.df['Adj Close'].min()
@@ -184,7 +188,7 @@ class StockAnalysis():
     def volumerange(self):
         """ shows the range of Volume """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             max = self.df['Volume'].max()
             min = self.df['Volume'].min()
@@ -192,7 +196,7 @@ class StockAnalysis():
     def closef(self):
         """ closes file """
         if self.filename == "":
-            msg.showinfo("ERROR", "NO CSV FILE")
+            msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.filename = ""
             msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
