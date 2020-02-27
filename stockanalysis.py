@@ -1,6 +1,7 @@
 """Analysis of stocks"""
 from tkinter import Menu, messagebox as msg, filedialog, Tk
 import pandas as pd
+import matplotlib.pyplot as plt
 class StockAnalysis():
     """ stock analysis class """
     def __init__(self, master):
@@ -79,7 +80,9 @@ class StockAnalysis():
         """ shows volume graph """
         if self.filename == "":
             msg.showinfo("ERROR", "NO CSV FILE")
-
+        else:
+            self.df['Volume'].plot()
+            plt.show()
     def highgraph(self):
         """ shows high graph """
         if self.filename == "":
