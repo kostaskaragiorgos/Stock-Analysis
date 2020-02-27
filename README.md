@@ -2,9 +2,11 @@
 
 ## Files
 <ul>
-<li> Stock Analysis.png </li>
-<li> Stock Analysis.txt </li>
-<li> stockanalysis.py </li>
+<li> Stock Analysis.png (Version image) </li>
+<li> Stock Analysis.txt (Radon) </li>
+<li> stockanalysis.py (.py file) </li>
+<li> radon cc stockanalysis(radon image) </li>
+<li> Stock Analysis keybinds.txt(keybinds file) </li>
 </ul>
 
 
