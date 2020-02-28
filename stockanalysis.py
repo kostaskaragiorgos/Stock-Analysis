@@ -155,17 +155,13 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            max = self.df['Open'].max()
-            min = self.df['Open'].min()
-            msg.showinfo("Open Range", "Max: " +str(max) +"\nMin: " +str(min))
+            msg.showinfo("Open Range", "Max: " +str(max(self.df['Open'])) +"\nMin: " +str(min(self.df['Open'])))
     def highrange(self):
         """ shows the range of High """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            max = self.df['High'].max()
-            min = self.df['High'].min()
-            msg.showinfo("High Range", "Max: "+str(max) + "\nMin: " +str(min))
+            msg.showinfo("High Range", "Max: "+str(max(self.df['High'])) + "\nMin: " +str(min(self.df['High'])))
     def lowrange(self):
         """ shows the range of Low """
         if self.filename == "":
