@@ -187,9 +187,7 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            max = self.df['Adj Close'].max()
-            min = self.df['Adj Close'].min()
-            msg.showinfo("Adj Close Range", "Max: "+str(max) + "\nMin: " +str(min))
+            msg.showinfo("Adj Close Range", "Max: "+str(max(self.df['Adj Close'])) + "\nMin: " +str(min(self.df['Adj Close'])))
     def volumerange(self):
         """ shows the range of Volume """
         if self.filename == "":
