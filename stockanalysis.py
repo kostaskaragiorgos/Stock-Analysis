@@ -171,17 +171,13 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            max = self.df['Low'].max()
-            min = self.df['Low'].min()
-            msg.showinfo("Low Range", "Max: "+str(max) + "\nMin: " +str(min))
+            msg.showinfo("Low Range", "Max: "+str(max(self.df['Low'])) + "\nMin: " +str(min(self.df['Low'])))
     def closerange(self):
         """ shows the range of Close """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            max = self.df['Close'].max()
-            min = self.df['Close'].min()
-            msg.showinfo("Close Range", "Max: "+str(max) + "\nMin: " +str(min))
+            msg.showinfo("Close Range", "Max: "+str(max(self.df['Close'])) + "\nMin: " +str(min(self.df['Close'])))
     def adjcloserange(self):
         """ shows the range of Adj Close """
         if self.filename == "":
