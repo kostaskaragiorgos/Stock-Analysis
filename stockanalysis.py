@@ -195,9 +195,7 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            max = self.df['Volume'].max()
-            min = self.df['Volume'].min()
-            msg.showinfo("Volume Range", "Max: "+str(max) + "\nMin: " +str(min))
+            msg.showinfo("Volume Range", "Max: "+str(max(self.df['Volume'])) + "\nMin: " +str(min(self.df['Volume'])))
     def closef(self):
         """ closes file """
         if self.filename == "":
