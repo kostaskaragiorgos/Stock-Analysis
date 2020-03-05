@@ -93,7 +93,7 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df.plot()
+            self.df.plot(title="Graph Summary")
             plt.show()
     def volumegraph(self):
         """ shows volume graph """
