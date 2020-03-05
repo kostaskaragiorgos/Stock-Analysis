@@ -23,6 +23,7 @@ class StockAnalysis():
                                    accelerator='Ctrl + O', command=self.insert_csv)
         self.file_menu.add_command(label="Close csv", accelerator='Ctrl+F4',
                                    command=self.closef)
+        self.file_menu.add_command(label="Save Range Data", command=self.save_range_data)
         self.file_menu.add_command(label="Exit",
                                    accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
@@ -88,6 +89,18 @@ class StockAnalysis():
         self.master.bind('<Alt-b>', lambda event: self.volumegraph())
         self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
         self.master.bind('<Control-F4>', lambda event: self.closef())
+    def save_range_data(self):
+        """ test
+        print(str(self.df.iloc[0]['Date']))
+        print(str(self.df.iloc[-1]['Date']))
+        print("Open Range", "Max: " +str(max(self.df['Open'])) +"\nMin: " +str(min(self.df['Open'])))
+        print("High Range", "Max: "+str(max(self.df['High'])) + "\nMin: " +str(min(self.df['High'])))
+        print("Low Range", "Max: "+str(max(self.df['Low'])) + "\nMin: " +str(min(self.df['Low'])))
+        print("Close Range", "Max: "+str(max(self.df['Close'])) + "\nMin: " +str(min(self.df['Close'])))
+        print("Adj Close Range", "Max: "+str(max(self.df['Adj Close'])) + "\nMin: " +str(min(self.df['Adj Close'])))
+        print("Volume Range", "Max: "+str(max(self.df['Volume'])) + "\nMin: " +str(min(self.df['Volume'])))
+        """
+
     def showgraphsummary(self):
         """ shows summary graph """
         if self.filename == "":
