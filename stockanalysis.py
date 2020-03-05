@@ -21,7 +21,7 @@ class StockAnalysis():
         self.file_menu = Menu(self.menu, tearoff=0)
         self.file_menu.add_command(label="Insert a csv",
                                    accelerator='Ctrl + O', command=self.insert_csv)
-        self.file_menu.add_command(label="Close csv",
+        self.file_menu.add_command(label="Close csv", accelerator='Ctrl+F4',
                                    command=self.closef)
         self.file_menu.add_command(label="Exit",
                                    accelerator='Alt+F4', command=self.exitmenu)
@@ -87,6 +87,7 @@ class StockAnalysis():
         self.master.bind('<Alt-d>', lambda event: self.adjclosegraph())
         self.master.bind('<Alt-b>', lambda event: self.volumegraph())
         self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
+        self.master.bind('<Control-F4>', lambda event: self.closef())
     def showgraphsummary(self):
         """ shows summary graph """
         if self.filename == "":
