@@ -2,6 +2,7 @@
 from tkinter import Menu, messagebox as msg, filedialog, Tk
 import pandas as pd
 import matplotlib.pyplot as plt
+import csv
 def helpmenu():
     """ help menu function """
     msg.showinfo("Help", "Import a csv file and gain info about stocks")
@@ -90,6 +91,13 @@ class StockAnalysis():
         self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
         self.master.bind('<Control-F4>', lambda event: self.closef())
     def save_range_data(self):
+        if self.filename == "":
+            msg.showerror("ERROR", "NO CSV FILE")
+        else:
+            filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
+            with open(str(filenamesave)+'.csv', 'a+') as f:
+                    thewriter = csv.writer(f)
+                    thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
         """ test
         print(str(self.df.iloc[0]['Date']))
         print(str(self.df.iloc[-1]['Date']))
