@@ -93,49 +93,49 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df.plot(title="Graph Summary")
+            self.df.plot(title="Summary Graph")
             plt.show()
     def volumegraph(self):
         """ shows volume graph """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['Volume'].plot()
+            self.df['Volume'].plot(title="Volume Graph")
             plt.show()
     def highgraph(self):
         """ shows high graph """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['High'].plot()
+            self.df['High'].plot(title="High Graph")
             plt.show()
     def lowgraph(self):
         """ shows low graph"""
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['Low'].plot()
+            self.df['Low'].plot(title="Low Graph")
             plt.show()
     def closegraph(self):
         """ shows close graph"""
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['Close'].plot()
+            self.df['Close'].plot(title="Close Graph")
             plt.show()
     def adjclosegraph(self):
         """ shows adj close graph"""
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['Adj Close'].plot()
+            self.df['Adj Close'].plot(title="Adj Close Graph")
             plt.show()
     def opengraph(self):
         """ shows open graph"""
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['Open'].plot()
+            self.df['Open'].plot(title="Open Graph")
             plt.show()
     def showcsv(self):
         """ shows the whole dataset """
