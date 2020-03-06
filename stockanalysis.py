@@ -96,18 +96,11 @@ class StockAnalysis():
         else:
             filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
             with open(str(filenamesave)+'.csv', 'a+') as f:
-                    thewriter = csv.writer(f)
-                    thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
-        """ test
-        print(str(self.df.iloc[0]['Date']))
-        print(str(self.df.iloc[-1]['Date']))
-        print("Open Range", "Max: " +str(max(self.df['Open'])) +"\nMin: " +str(min(self.df['Open'])))
-        print("High Range", "Max: "+str(max(self.df['High'])) + "\nMin: " +str(min(self.df['High'])))
-        print("Low Range", "Max: "+str(max(self.df['Low'])) + "\nMin: " +str(min(self.df['Low'])))
-        print("Close Range", "Max: "+str(max(self.df['Close'])) + "\nMin: " +str(min(self.df['Close'])))
-        print("Adj Close Range", "Max: "+str(max(self.df['Adj Close'])) + "\nMin: " +str(min(self.df['Adj Close'])))
-        print("Volume Range", "Max: "+str(max(self.df['Volume'])) + "\nMin: " +str(min(self.df['Volume'])))
-        """
+                thewriter = csv.writer(f)
+                thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
+                thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])) , str(max(self.df['Low'])) , str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
+                thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])) , str(min(self.df['Low'])) , str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
+            msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
 
     def showgraphsummary(self):
         """ shows summary graph """
