@@ -1,8 +1,8 @@
 """Analysis of stocks"""
 from tkinter import Menu, messagebox as msg, filedialog, Tk
+import csv
 import pandas as pd
 import matplotlib.pyplot as plt
-import csv
 def helpmenu():
     """ help menu function """
     msg.showinfo("Help", "Import a csv file and gain info about stocks")
@@ -91,6 +91,7 @@ class StockAnalysis():
         self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
         self.master.bind('<Control-F4>', lambda event: self.closef())
     def save_range_data(self):
+        """ saves a csv data with the max min values"""
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
@@ -98,8 +99,8 @@ class StockAnalysis():
             with open(str(filenamesave)+'.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
-                thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])) , str(max(self.df['Low'])) , str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
-                thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])) , str(min(self.df['Low'])) , str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
+                thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
+                thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
             msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
 
     def showgraphsummary(self):
