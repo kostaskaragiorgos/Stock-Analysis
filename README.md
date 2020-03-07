@@ -26,6 +26,9 @@
 **Radon**
 
 <p><img src="radon cc stockanalysis.png" title = "Stock Analysis Radon"/> </p>
+<p><img src="radon hal stockanalysis.png" title = "Stock Analysis Radon hal"/> </p>
+<p><img src="radon mi stockanalysis.png" title = "Stock Analysis Radon mi"/>  </p>
+<p><img src="radon raw stockanalysis.png" title = "Stock Analysis Radon raw"/> </p>
 
 
 ## Keybinds
