@@ -1,5 +1,7 @@
 # Stock-Analysis
 
+Shows you valuable info about stocks
+
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 # Table of contents
@@ -19,9 +21,12 @@
 
 <ul>
   <li> Stock Analysis.png (Version image) </li>
-  <li> Stock Analysis.txt (Radon) </li>
+  <li> Stock Analysis.txt (Radon cc) </li>
   <li> stockanalysis.py (.py file) </li>
-  <li> radon cc stockanalysis(radon image) </li>
+  <li> radon cc stockanalysis.png(radon cc image) </li>
+  <li> radon hal stockanalysis.png(radon hal image) </li>
+  <li> radon mi stockanalysis.png(radon mi image) </li>
+  <li> radon raw stockanalysis.png(radon raw image) </li>
   <li> Stock Analysis keybinds.txt(keybinds file) </li>
 </ul>
 
