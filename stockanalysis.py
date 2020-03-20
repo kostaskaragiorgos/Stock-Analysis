@@ -17,6 +17,7 @@ class StockAnalysis():
         self.master.geometry("250x120")
         self.master.resizable(False, False)
         self.filename = ""
+        self.filenamesave = ""
         #menu
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
@@ -95,8 +96,10 @@ class StockAnalysis():
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-            with open(str(filenamesave)+'.csv', 'a+') as f:
+            self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
+            while self.filenamesave == None or self.filenamesave == "":
+                self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
+            with open(str(self.filenamesave)+'.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
                 thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
