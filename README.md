@@ -57,6 +57,7 @@ Shows you valuable info about stocks
 <ul>
   <li> Insert a csv Ctrl + O </li>
   <li> Close csv </li>
+  <li> Save Range Data Ctrl + T </li>
   <li> Exit Alt + F4 </li>
   <li> Show csv Alt + S </li>
   <li> Show High Graph </li>
