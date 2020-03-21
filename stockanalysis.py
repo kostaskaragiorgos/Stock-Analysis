@@ -25,7 +25,7 @@ class StockAnalysis():
                                    accelerator='Ctrl + O', command=self.insert_csv)
         self.file_menu.add_command(label="Close csv", accelerator='Ctrl+F4',
                                    command=self.closef)
-        self.file_menu.add_command(label="Save Range Data", command=self.save_range_data)
+        self.file_menu.add_command(label="Save Range Data", accelerator='Ctrl+shift+S', command=self.save_range_data)
         self.file_menu.add_command(label="Exit",
                                    accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
@@ -71,6 +71,7 @@ class StockAnalysis():
         self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
+        self.master.bind('<Control-t>', lambda event: self.save_range_data())
         self.master.bind('<Control-o>', lambda event: self.insert_csv())
         self.master.bind('<Alt-s>', lambda event: self.showcsv())
         self.master.bind('<Control-d>', lambda event: self.daterange())
@@ -97,14 +98,15 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-            while self.filenamesave == None or self.filenamesave == "":
-                self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-            with open(str(self.filenamesave)+'.csv', 'a+') as f:
-                thewriter = csv.writer(f)
-                thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
-                thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
-                thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
-            msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
+            if self.filenamesave == None or self.filenamesave == "":
+                msg.showerror("ERROR","NO FILE SAVED")
+            else:
+                with open(str(self.filenamesave)+'.csv', 'a+') as f:
+                    thewriter = csv.writer(f)
+                    thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
+                    thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
+                    thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
+                msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
 
     def showgraphsummary(self):
         """ shows summary graph """
