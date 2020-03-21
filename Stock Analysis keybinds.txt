@@ -1,7 +1,8 @@
 File menu
-=====================
+========================
 Insert a csv Ctrl + O
-Close csv
+Close csv Ctrl + F4
+Save Range Data Ctrl + T
 Exit Alt + F4
 =============
 Show

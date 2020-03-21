@@ -25,7 +25,7 @@ class StockAnalysis():
                                    accelerator='Ctrl + O', command=self.insert_csv)
         self.file_menu.add_command(label="Close csv", accelerator='Ctrl+F4',
                                    command=self.closef)
-        self.file_menu.add_command(label="Save Range Data", accelerator='Ctrl+shift+S', command=self.save_range_data)
+        self.file_menu.add_command(label="Save Range Data", accelerator='Ctrl+T', command=self.save_range_data)
         self.file_menu.add_command(label="Exit",
                                    accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
