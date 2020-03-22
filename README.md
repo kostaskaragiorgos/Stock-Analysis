@@ -34,6 +34,10 @@ Shows you valuable info about stocks
 # Dependencies
 
 <ul>
+    <li> matplotlib (conda install -c conda-forge matplotlib) </li>
+    <li> second way to install matplotlib (pip install matplotlib) </li>
+    <li> csv (conda install -c anaconda csvkit) </li>
+    <li> second way to install csv( pip install python-csv) </li>
     <li> pandas (conda install -c anaconda pandas) </li>
     <li> second way to install pandas ( pip install pandas) </li>
     <li> radon (conda install -c conda-forge radon) </li>
