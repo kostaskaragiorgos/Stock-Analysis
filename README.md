@@ -46,14 +46,14 @@ Shows you valuable info about stocks
 
 # Current_Version
 
-<p><img src ="Stock Analysis.png" title = "Stock Analysis Version"/> </p>
+<p><img src ="images/Stock Analysis.png" title = "Stock Analysis Version"/> </p>
 
 # Radon
 
-<p><img src="radon cc stockanalysis.png" title = "Stock Analysis Radon"/> </p>
-<p><img src="radon hal stockanalysis.png" title = "Stock Analysis Radon hal"/> </p>
-<p><img src="radon mi stockanalysis.png" title = "Stock Analysis Radon mi"/>  </p>
-<p><img src="radon raw stockanalysis.png" title = "Stock Analysis Radon raw"/> </p>
+<p><img src="images/radon cc stockanalysis.png" title = "Stock Analysis Radon"/> </p>
+<p><img src="images/radon hal stockanalysis.png" title = "Stock Analysis Radon hal"/> </p>
+<p><img src="images/radon mi stockanalysis.png" title = "Stock Analysis Radon mi"/>  </p>
+<p><img src="images/radon raw stockanalysis.png" title = "Stock Analysis Radon raw"/> </p>
 
 
 # Keybinds
