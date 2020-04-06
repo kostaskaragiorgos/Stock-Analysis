@@ -48,20 +48,20 @@ class StockAnalysis():
                                    accelerator='Alt + B', command=self.volumegraph)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.range_menu = Menu(self.menu, tearoff=0)
-        self.range_menu.add_command(label="Show Date Range",
+        self.range_menu.add_command(label="Date Range",
                                     accelerator='Ctrl + D', command=self.daterange)
-        self.range_menu.add_command(label="Show Open Range", 
+        self.range_menu.add_command(label="Open Range", 
                                     accelerator='Alt + O', command=self.openrange)
-        self.range_menu.add_command(label="Show High Range",
+        self.range_menu.add_command(label="High Range",
                                     accelerator='Alt + H', command=self.highrange)
-        self.range_menu.add_command(label="Show Low Range",
+        self.range_menu.add_command(label="Low Range",
                                     accelerator='Alt + L', command=self.lowrange)
-        self.range_menu.add_command(label="Show Close Range", 
+        self.range_menu.add_command(label="Close Range", 
                                     accelerator='Alt + C', command=self.closerange)
-        self.range_menu.add_command(label="Show Adj Close Range", 
+        self.range_menu.add_command(label="Adj Close Range", 
                                     accelerator='Alt + A', 
                                     command=self.adjcloserange)
-        self.range_menu.add_command(label="Show Volume Range",
+        self.range_menu.add_command(label="Volume Range",
                                     accelerator='Alt + V', command=self.volumerange)
         self.menu.add_cascade(label="Range", menu=self.range_menu)
         self.about_menu = Menu(self.menu, tearoff=0)

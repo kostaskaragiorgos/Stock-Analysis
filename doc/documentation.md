@@ -125,3 +125,45 @@ if no .csv file is imported an informative message pops up
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
 # Range menu
+
+## Date Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Open Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## High Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Low Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Close Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Adj Close Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Volume Range
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
