@@ -76,4 +76,52 @@ You press ok to close the app or cancel if you don't want
 
 # Show menu
 
+## Show Graph Summary
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show csv
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show Open Graph
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show High Graph
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show Low Graph
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show Close Graph
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show Adj Close Graph
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+## Show Volume Graph
+
+if no .csv file is imported an informative message pops up
+
+<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
 # Range menu
