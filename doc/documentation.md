@@ -163,7 +163,11 @@ else it shows the Volume Graph
 
 if no .csv file is imported an informative message pops up
 
-<p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+<p><img src ="doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the date range
+
+<p><img src ="doc images/Range menu/date range.png" title="Date Range"/> </p>
 
 ## Open Range
 
@@ -171,11 +175,19 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+else it shows the open range
+
+<p><img src ="doc images/Range menu/open range.png" title="Open Range"/> </p>
+
 ## High Range
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the high range
+
+<p><img src ="doc images/Range menu/high range.png" title="High Range"/> </p>
 
 ## Low Range
 
@@ -183,11 +195,19 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+else it shows the low range
+
+<p><img src ="doc images/Range menu/low range.png" title="Low Range"/> </p>
+
 ## Close Range
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the close range
+
+<p><img src ="doc images/Range menu/close range.png" title="Close Range"/> </p>
 
 ## Adj Close Range
 
@@ -195,8 +215,16 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+else it shows the adj close range
+
+<p><img src ="doc images/Range menu/adj close range.png" title="Adj Close Range"/> </p>
+
 ## Volume Range
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the volume range
+
+<p><img src ="doc images/Range menu/volume range.png" title="Volume Range"/> </p>
