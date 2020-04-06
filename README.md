@@ -9,24 +9,22 @@ Shows you valuable info about stocks
 <!--ts-->
   * [Stock-Analysis](#Stock-Analysis)
   * [Table of contents](#Table_of_contents)
-  * [Files](#Files)
+  * [Files/Folders](#Files/Folders)
   * [Dependencies](#Dependencies)
+  * [Documentation](#Documentation)
   * [Current Version](#Current_Version)
   * [Radon](#Radon)
   * [Keybinds](#Keybinds)
   * [License](#License)
 <!--te-->
 
-# Files
+# Files/Folders
 
 <ul>
-  <li> Stock Analysis.png (Version image) </li>
+  <li> ./doc (documentation folder) </li>
+  <li> ./images (images folder) </li>
   <li> Stock Analysis.txt (Radon cc) </li>
   <li> stockanalysis.py (.py file) </li>
-  <li> radon cc stockanalysis.png(radon cc image) </li>
-  <li> radon hal stockanalysis.png(radon hal image) </li>
-  <li> radon mi stockanalysis.png(radon mi image) </li>
-  <li> radon raw stockanalysis.png(radon raw image) </li>
   <li> Stock Analysis keybinds.txt(keybinds file) </li>
 </ul>
 
@@ -47,6 +45,10 @@ Shows you valuable info about stocks
 # Current_Version
 
 <p><img src ="images/Stock Analysis.png" title = "Stock Analysis Version"/> </p>
+
+# Documentation
+
+All project documentation is located in the `./doc`  folder.
 
 # Radon
 
