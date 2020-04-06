@@ -73,7 +73,6 @@ An informative message pops up
 
 You press ok to close the app or cancel if you don't want
 
-
 # Show menu
 
 ## Show Graph Summary
@@ -82,11 +81,19 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+else it shows the Graph Summary
+
+<p><img src = "doc images/Show menu/Graph Summary.png" title="Graph Summary"/> </p>
+
 ## Show csv
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the Data Frame
+
+<p><img src = "doc images/Show menu/show csv.png" title="Data Frame"/> </p>
 
 ## Show Open Graph
 
@@ -94,11 +101,21 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+
+else it shows the Open Graph
+
+<p><img src = "doc images/Show menu/open Graph.png" title="Open Graph"/> </p>
+
 ## Show High Graph
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+
+else it shows the High Graph
+
+<p><img src = "doc images/Show menu/high graph.png" title="High Graph"/> </p>
 
 ## Show Low Graph
 
@@ -106,11 +123,19 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+else it shows the Low Graph
+
+<p><img src = "doc images/Show menu/low graph.png" title="Low Graph"/> </p>
+
 ## Show Close Graph
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the Close Graph
+
+<p><img src = "doc images/Show menu/close graph.png" title="Close Graph"/> </p>
 
 ## Show Adj Close Graph
 
@@ -118,11 +143,19 @@ if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
 
+else it shows the Adj Close Graph
+
+<p><img src = "doc images/Show menu/adj close graph.png" title="Adj Close Graph"/> </p>
+
 ## Show Volume Graph
 
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
+
+else it shows the Volume Graph
+
+<p><img src = "doc images/Show menu/volume graph.png" title="Volume Graph"/> </p>
 
 # Range menu
 
