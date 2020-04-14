@@ -232,7 +232,7 @@ class StockAnalysis():
                 self.filename = ""
                 msg.showerror("ERROR", "NO CSV IMPORTED")
         else:
-            msg.showerror("Error", " A CSV FILE IS ALREADY OPEN")
+            msg.showerror("ERROR", " A CSV FILE IS ALREADY OPEN")
     def exitmenu(self):
         """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
