@@ -98,8 +98,8 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-            if self.filenamesave == None or self.filenamesave == "":
-                msg.showerror("ERROR","NO FILE SAVED")
+            if self.filenamesave is None or self.filenamesave == "":
+                msg.showerror("ERROR", "NO FILE SAVED")
             else:
                 with open(str(self.filenamesave)+'.csv', 'a+') as f:
                     thewriter = csv.writer(f)
