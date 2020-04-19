@@ -14,6 +14,10 @@ Shows you valuable info about stocks
   * [Documentation](#Documentation)
   * [Current Version](#Current_Version)
   * [Radon](#Radon)
+    * [Radon cc](#Radon_cc)
+    * [Radon hal](#Radon_hal)
+    * [Radon mi](#Radon_mi)
+    * [Radon raw](#Radon_raw)
   * [Keybinds](#Keybinds)
   * [License](#License)
 <!--te-->
@@ -52,9 +56,20 @@ All project documentation is located in the `./doc`  folder.
 
 # Radon
 
-<p><img src="images/radon cc stockanalysis.png" title = "Stock Analysis Radon"/> </p>
+## Radon_cc
+
+<p><img src="images/radon cc stockanalysis.png" title = "Stock Analysis Radon cc"/> </p>
+
+## Radon_hal
+
 <p><img src="images/radon hal stockanalysis.png" title = "Stock Analysis Radon hal"/> </p>
+
+## Radon mi
+
 <p><img src="images/radon mi stockanalysis.png" title = "Stock Analysis Radon mi"/>  </p>
+
+## Radon raw
+
 <p><img src="images/radon raw stockanalysis.png" title = "Stock Analysis Radon raw"/> </p>
 
 
