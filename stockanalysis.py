@@ -35,17 +35,17 @@ class StockAnalysis():
         self.show_menu.add_command(label="Show csv",
                                    accelerator='Alt+S', command=self.showcsv)
         self.show_menu.add_command(label="Show Open Graph",
-                                   accelerator='Alt + T', command=self.opengraph)
+                                   accelerator='Alt + T', command=lambda: self.graph('Open'))
         self.show_menu.add_command(label="Show High Graph",
-                                   accelerator='Alt + U', command=self.highgraph)
+                                   accelerator='Alt + U', command=lambda: self.graph('High'))
         self.show_menu.add_command(label="Show Low Graph",
-                                   accelerator='Alt + Q', command=self.lowgraph)
+                                   accelerator='Alt + Q', command=lambda: self.graph('Low'))
         self.show_menu.add_command(label="Show Close Graph",
-                                   accelerator='Alt + C', command=self.closegraph)
+                                   accelerator='Alt + C', command=lambda: self.graph('Close'))
         self.show_menu.add_command(label="Show Adj Close Graph", 
-                                   accelerator='Alt + D', command=self.adjclosegraph)
+                                   accelerator='Alt + D', command=lambda: self.graph('Adj Close'))
         self.show_menu.add_command(label="Show Volume Graph",
-                                   accelerator='Alt + B', command=self.volumegraph)
+                                   accelerator='Alt + B', command=lambda: self.graph('Volume'))
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.range_menu = Menu(self.menu, tearoff=0)
         self.range_menu.add_command(label="Date Range",
@@ -84,12 +84,12 @@ class StockAnalysis():
         self.master.bind('<Alt-c>', lambda event: self.closerange())
         self.master.bind('<Alt-a>', lambda event: self.adjcloserange())
         self.master.bind('<Alt-v>', lambda event: self.volumerange())
-        self.master.bind('<Alt-t>', lambda event: self.opengraph())
-        self.master.bind('<Alt-u>', lambda event: self.highgraph())
-        self.master.bind('<Alt-q>', lambda event: self.lowgraph())
-        self.master.bind('<Alt-c>', lambda event: self.closegraph())
-        self.master.bind('<Alt-d>', lambda event: self.adjclosegraph())
-        self.master.bind('<Alt-b>', lambda event: self.volumegraph())
+        self.master.bind('<Alt-t>', lambda event: self.graph('Open'))
+        self.master.bind('<Alt-u>', lambda event: self.graph('High'))
+        self.master.bind('<Alt-q>', lambda event: self.graph('Low'))
+        self.master.bind('<Alt-c>', lambda event: self.graph('Close'))
+        self.master.bind('<Alt-d>', lambda event: self.graph('Adj Close'))
+        self.master.bind('<Alt-b>', lambda event: self.graph('Volume'))
         self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
         self.master.bind('<Control-F4>', lambda event: self.closef())
     def save_range_data(self):
@@ -115,48 +115,14 @@ class StockAnalysis():
         else:
             self.df.plot(title="Summary Graph")
             plt.show()
-    def volumegraph(self):
+    def graph(self,graphname):
         """ shows volume graph """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.df['Volume'].plot(title="Volume Graph")
+            self.df[graphname].plot(title=graphname+" Graph")
             plt.show()
-    def highgraph(self):
-        """ shows high graph """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            self.df['High'].plot(title="High Graph")
-            plt.show()
-    def lowgraph(self):
-        """ shows low graph"""
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            self.df['Low'].plot(title="Low Graph")
-            plt.show()
-    def closegraph(self):
-        """ shows close graph"""
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            self.df['Close'].plot(title="Close Graph")
-            plt.show()
-    def adjclosegraph(self):
-        """ shows adj close graph"""
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            self.df['Adj Close'].plot(title="Adj Close Graph")
-            plt.show()
-    def opengraph(self):
-        """ shows open graph"""
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            self.df['Open'].plot(title="Open Graph")
-            plt.show()
+
     def showcsv(self):
         """ shows the whole dataset """
         if self.filename == "":
