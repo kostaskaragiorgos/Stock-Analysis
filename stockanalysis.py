@@ -49,7 +49,7 @@ class StockAnalysis():
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.range_menu = Menu(self.menu, tearoff=0)
         self.range_menu.add_command(label="Date Range",
-                                    accelerator='Ctrl + D', command=self.daterange)
+                                    accelerator='Ctrl + D', command=lambda: self.range('Date'))
         self.range_menu.add_command(label="Open Range", 
                                     accelerator='Alt + O', command=lambda: self.range('Open'))
         self.range_menu.add_command(label="High Range",
@@ -74,7 +74,7 @@ class StockAnalysis():
         self.master.bind('<Control-t>', lambda event: self.save_range_data())
         self.master.bind('<Control-o>', lambda event: self.insert_csv())
         self.master.bind('<Alt-s>', lambda event: self.showcsv())
-        self.master.bind('<Control-d>', lambda event: self.daterange())
+        self.master.bind('<Control-d>', lambda event: self.range('Date'))
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
@@ -116,7 +116,7 @@ class StockAnalysis():
             self.df.plot(title="Summary Graph")
             plt.show()
     def graph(self,graphname):
-        """ shows volume graph """
+        """ shows a graph named by the graphname parameter """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
@@ -128,21 +128,15 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             msg.showinfo("DATA FRAME", str(self.df))
-    def daterange(self):
-        """ shows the range of Date """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            from1 = self.df.iloc[0]['Date']
-            to1 = self.df.iloc[-1]['Date']
-            msg.showinfo("Date Range", "From: "+str(from1) +"\nTo: " +str(to1))
-
     def range(self,rangename):
-        """ shows the range of Open """
+        """ shows the range of the rangename parameter """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            msg.showinfo("Open Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
+            if rangename == 'Date':
+                msg.showinfo("Date Range", "From: "+str(self.df.iloc[0]['Date']) +"\nTo: " +str(self.df.iloc[-1]['Date']))
+            else:
+                msg.showinfo("Open Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
     def closef(self):
         """ closes file """
         if self.filename == "":
