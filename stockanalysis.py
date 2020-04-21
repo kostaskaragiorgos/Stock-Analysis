@@ -51,18 +51,18 @@ class StockAnalysis():
         self.range_menu.add_command(label="Date Range",
                                     accelerator='Ctrl + D', command=self.daterange)
         self.range_menu.add_command(label="Open Range", 
-                                    accelerator='Alt + O', command=self.openrange)
+                                    accelerator='Alt + O', command=lambda: self.range('Open'))
         self.range_menu.add_command(label="High Range",
-                                    accelerator='Alt + H', command=self.highrange)
+                                    accelerator='Alt + H', command=lambda: self.range('High'))
         self.range_menu.add_command(label="Low Range",
-                                    accelerator='Alt + L', command=self.lowrange)
+                                    accelerator='Alt + L', command=lambda: self.range('Low'))
         self.range_menu.add_command(label="Close Range", 
-                                    accelerator='Alt + C', command=self.closerange)
+                                    accelerator='Alt + C', command=lambda: self.range('Close'))
         self.range_menu.add_command(label="Adj Close Range", 
                                     accelerator='Alt + A', 
-                                    command=self.adjcloserange)
+                                    command=lambda: self.range('Adj Close'))
         self.range_menu.add_command(label="Volume Range",
-                                    accelerator='Alt + V', command=self.volumerange)
+                                    accelerator='Alt + V', command=lambda: self.range('Volume'))
         self.menu.add_cascade(label="Range", menu=self.range_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
@@ -78,12 +78,12 @@ class StockAnalysis():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
-        self.master.bind('<Alt-o>', lambda event: self.openrange())
-        self.master.bind('<Alt-h>', lambda event: self.highrange())
-        self.master.bind('<Alt-l>', lambda event: self.lowrange())
-        self.master.bind('<Alt-c>', lambda event: self.closerange())
-        self.master.bind('<Alt-a>', lambda event: self.adjcloserange())
-        self.master.bind('<Alt-v>', lambda event: self.volumerange())
+        self.master.bind('<Alt-o>', lambda event: self.range('Open'))
+        self.master.bind('<Alt-h>', lambda event: self.range('High'))
+        self.master.bind('<Alt-l>', lambda event: self.range('Low'))
+        self.master.bind('<Alt-c>', lambda event: self.range('Close'))
+        self.master.bind('<Alt-a>', lambda event: self.range('Adj Close'))
+        self.master.bind('<Alt-v>', lambda event: self.range('Volume'))
         self.master.bind('<Alt-t>', lambda event: self.graph('Open'))
         self.master.bind('<Alt-u>', lambda event: self.graph('High'))
         self.master.bind('<Alt-q>', lambda event: self.graph('Low'))
@@ -122,7 +122,6 @@ class StockAnalysis():
         else:
             self.df[graphname].plot(title=graphname+" Graph")
             plt.show()
-
     def showcsv(self):
         """ shows the whole dataset """
         if self.filename == "":
@@ -137,42 +136,13 @@ class StockAnalysis():
             from1 = self.df.iloc[0]['Date']
             to1 = self.df.iloc[-1]['Date']
             msg.showinfo("Date Range", "From: "+str(from1) +"\nTo: " +str(to1))
-    def openrange(self):
+
+    def range(self,rangename):
         """ shows the range of Open """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            msg.showinfo("Open Range", "Max: " +str(max(self.df['Open'])) +"\nMin: " +str(min(self.df['Open'])))
-    def highrange(self):
-        """ shows the range of High """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            msg.showinfo("High Range", "Max: "+str(max(self.df['High'])) + "\nMin: " +str(min(self.df['High'])))
-    def lowrange(self):
-        """ shows the range of Low """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            msg.showinfo("Low Range", "Max: "+str(max(self.df['Low'])) + "\nMin: " +str(min(self.df['Low'])))
-    def closerange(self):
-        """ shows the range of Close """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            msg.showinfo("Close Range", "Max: "+str(max(self.df['Close'])) + "\nMin: " +str(min(self.df['Close'])))
-    def adjcloserange(self):
-        """ shows the range of Adj Close """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            msg.showinfo("Adj Close Range", "Max: "+str(max(self.df['Adj Close'])) + "\nMin: " +str(min(self.df['Adj Close'])))
-    def volumerange(self):
-        """ shows the range of Volume """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            msg.showinfo("Volume Range", "Max: "+str(max(self.df['Volume'])) + "\nMin: " +str(min(self.df['Volume'])))
+            msg.showinfo("Open Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
     def closef(self):
         """ closes file """
         if self.filename == "":
