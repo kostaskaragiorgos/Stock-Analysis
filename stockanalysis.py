@@ -31,7 +31,7 @@ class StockAnalysis():
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
         self.show_menu.add_command(label="Show Graph Summary", accelerator='Ctrl+S',
-                                   command=self.showgraphsummary)
+                                   command=lambda: self.graph(None))
         self.show_menu.add_command(label="Show csv",
                                    accelerator='Alt+S', command=self.showcsv)
         self.show_menu.add_command(label="Show Open Graph",
@@ -90,7 +90,7 @@ class StockAnalysis():
         self.master.bind('<Alt-c>', lambda event: self.graph('Close'))
         self.master.bind('<Alt-d>', lambda event: self.graph('Adj Close'))
         self.master.bind('<Alt-b>', lambda event: self.graph('Volume'))
-        self.master.bind('<Control-s>', lambda event: self.showgraphsummary())
+        self.master.bind('<Control-s>', lambda event: self.graph(None))
         self.master.bind('<Control-F4>', lambda event: self.closef())
     def save_range_data(self):
         """ saves a csv data with the max min values"""
@@ -108,17 +108,13 @@ class StockAnalysis():
                     thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
                 msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
 
-    def showgraphsummary(self):
-        """ shows summary graph """
-        if self.filename == "":
-            msg.showerror("ERROR", "NO CSV FILE")
-        else:
-            self.df.plot(title="Summary Graph")
-            plt.show()
     def graph(self,graphname):
         """ shows a graph named by the graphname parameter """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
+        elif graphname == None:
+            self.df.plot(title="Summary Graph")
+            plt.show()
         else:
             self.df[graphname].plot(title=graphname+" Graph")
             plt.show()
