@@ -108,11 +108,11 @@ class StockAnalysis():
                     thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
                 msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
 
-    def graph(self,graphname):
+    def graph(self, graphname):
         """ shows a graph named by the graphname parameter """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
-        elif graphname == None:
+        elif graphname is None:
             self.df.plot(title="Summary Graph")
             plt.show()
         else:
@@ -124,7 +124,7 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             msg.showinfo("DATA FRAME", str(self.df))
-    def range(self,rangename):
+    def range(self, rangename):
         """ shows the range of the rangename parameter """
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
