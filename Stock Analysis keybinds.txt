@@ -1,12 +1,13 @@
 File menu
-========================
+=========================
 Insert a csv Ctrl + O
 Close csv Ctrl + F4
 Save Range Data Ctrl + T
 Exit Alt + F4
 =============
 Show
-================
+============================
+Show Graph Summary Ctrl + S
 Show csv Alt + S
 Show Open Graph Alt + T
 Show High Graph Alt + U

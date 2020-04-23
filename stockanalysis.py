@@ -132,7 +132,7 @@ class StockAnalysis():
             if rangename == 'Date':
                 msg.showinfo("Date Range", "From: "+str(self.df.iloc[0]['Date']) +"\nTo: " +str(self.df.iloc[-1]['Date']))
             else:
-                msg.showinfo("Open Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
+                msg.showinfo( str(rangename)+" Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
     def closef(self):
         """ closes file """
         if self.filename == "":
