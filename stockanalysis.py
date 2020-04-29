@@ -140,6 +140,19 @@ class StockAnalysis():
         else:
             self.filename = ""
             msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
+    def inputvalidation(self):
+        """ input validation"""
+        if ".csv" in self.filename:
+            self.df = pd.read_csv(self.filename)
+            if all([item in self.df.columns for item in ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']]):
+                msg.showinfo("SUCCESS", "CSV FILE ADDED SUCCESSFULLY")
+            else:
+                self.filename = ""
+                msg.showerror("ERROR", "NO PROPER CSV ")
+        else:
+            self.filename = ""
+            msg.showerror("ERROR", "NO CSV IMPORTED")
+
     def insert_csv(self):
         """ insert csv function """
         # csv file stracture : Date,Open,High,Low,
@@ -147,16 +160,7 @@ class StockAnalysis():
         if self.filename == "":
             self.filename = filedialog.askopenfilename(initialdir="/", title="Select csv file",
                                                        filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-            if ".csv" in self.filename:
-                self.df = pd.read_csv(self.filename)
-                if all([item in self.df.columns for item in ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']]):
-                    msg.showinfo("SUCCESS", "CSV FILE ADDED SUCCESSFULLY")
-                else:
-                    self.filename = ""
-                    msg.showerror("ERROR", "NO PROPER CSV ")
-            else:
-                self.filename = ""
-                msg.showerror("ERROR", "NO CSV IMPORTED")
+            self.inputvalidation()
         else:
             msg.showerror("ERROR", " A CSV FILE IS ALREADY OPEN")
     def exitmenu(self):
