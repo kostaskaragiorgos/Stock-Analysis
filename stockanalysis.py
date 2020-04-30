@@ -132,7 +132,7 @@ class StockAnalysis():
             if rangename == 'Date':
                 msg.showinfo("Date Range", "From: "+str(self.df.iloc[0]['Date']) +"\nTo: " +str(self.df.iloc[-1]['Date']))
             else:
-                msg.showinfo( str(rangename)+" Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
+                msg.showinfo(str(rangename)+" Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
     def closef(self):
         """ closes file """
         if self.filename == "":
@@ -142,6 +142,8 @@ class StockAnalysis():
             msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
     def inputvalidation(self):
         """ input validation"""
+        # csv file stracture : Date,Open,High,Low,
+        # Close,Adj Close,Volume
         if ".csv" in self.filename:
             self.df = pd.read_csv(self.filename)
             if all([item in self.df.columns for item in ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']]):
@@ -155,8 +157,6 @@ class StockAnalysis():
 
     def insert_csv(self):
         """ insert csv function """
-        # csv file stracture : Date,Open,High,Low,
-        # Close,Adj Close,Volume
         if self.filename == "":
             self.filename = filedialog.askopenfilename(initialdir="/", title="Select csv file",
                                                        filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
