@@ -140,7 +140,7 @@ class StockAnalysis():
         else:
             self.filename = ""
             msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
-    def column_validation(self, df):
+    def column_validation(self):
         if all([item in self.df.columns for item in ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']]):
             msg.showinfo("SUCCESS", "CSV FILE ADDED SUCCESSFULLY")
         else:
