@@ -152,7 +152,7 @@ class StockAnalysis():
         # Close,Adj Close,Volume
         if ".csv" in self.filename:
             self.df = pd.read_csv(self.filename)
-            self.column_validation(self.df)
+            self.column_validation()
         else:
             self.filename = ""
             msg.showerror("ERROR", "NO CSV IMPORTED")
