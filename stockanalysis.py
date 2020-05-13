@@ -92,6 +92,11 @@ class StockAnalysis():
         self.master.bind('<Alt-b>', lambda event: self.graph('Volume'))
         self.master.bind('<Control-s>', lambda event: self.graph(None))
         self.master.bind('<Control-F4>', lambda event: self.closef())
+    def savefile(self):
+        if self.filenamesave is None or self.filenamesave == "":
+            msg.showerror("ERROR", "NO FILE SAVED")
+        else:
+            self.saverange()
     def saverange(self):
         with open(str(self.filenamesave)+'.csv', 'a+') as f:
             thewriter = csv.writer(f)
@@ -105,11 +110,7 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-            if self.filenamesave is None or self.filenamesave == "":
-                msg.showerror("ERROR", "NO FILE SAVED")
-            else:
-                self.saverange()
-
+            self.savefile()
     def graph(self, graphname):
         """ shows a graph named by the graphname parameter """
         if self.filename == "":
