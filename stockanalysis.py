@@ -92,6 +92,13 @@ class StockAnalysis():
         self.master.bind('<Alt-b>', lambda event: self.graph('Volume'))
         self.master.bind('<Control-s>', lambda event: self.graph(None))
         self.master.bind('<Control-F4>', lambda event: self.closef())
+    def saverange(self):
+        with open(str(self.filenamesave)+'.csv', 'a+') as f:
+            thewriter = csv.writer(f)
+            thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
+            thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
+            thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
+        msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
     def save_range_data(self):
         """ saves a csv data with the max min values"""
         if self.filename == "":
@@ -101,12 +108,7 @@ class StockAnalysis():
             if self.filenamesave is None or self.filenamesave == "":
                 msg.showerror("ERROR", "NO FILE SAVED")
             else:
-                with open(str(self.filenamesave)+'.csv', 'a+') as f:
-                    thewriter = csv.writer(f)
-                    thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
-                    thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
-                    thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
-                msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
+                self.saverange()
 
     def graph(self, graphname):
         """ shows a graph named by the graphname parameter """
