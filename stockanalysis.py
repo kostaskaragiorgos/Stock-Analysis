@@ -25,7 +25,8 @@ class StockAnalysis():
                                    accelerator='Ctrl + O', command=self.insert_csv)
         self.file_menu.add_command(label="Close csv", accelerator='Ctrl+F4',
                                    command=self.closef)
-        self.file_menu.add_command(label="Save Range Data", accelerator='Ctrl+T', command=self.save_range_data)
+        self.file_menu.add_command(label="Save Range Data",
+                                   accelerator='Ctrl+T', command=self.save_range_data)
         self.file_menu.add_command(label="Exit",
                                    accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
@@ -93,23 +94,33 @@ class StockAnalysis():
         self.master.bind('<Control-s>', lambda event: self.graph(None))
         self.master.bind('<Control-F4>', lambda event: self.closef())
     def savefile(self):
+        """ save file function """
         if self.filenamesave is None or self.filenamesave == "":
             msg.showerror("ERROR", "NO FILE SAVED")
         else:
             self.saverange()
     def saverange(self):
+        """ save ranges to a csv file """
         with open(str(self.filenamesave)+'.csv', 'a+') as f:
             thewriter = csv.writer(f)
             thewriter.writerow(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'])
-            thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])), str(max(self.df['High'])), str(max(self.df['Low'])), str(max(self.df['Close'])), str(max(self.df['Adj Close'])), str(max(self.df['Volume']))])
-            thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])), str(min(self.df['High'])), str(min(self.df['Low'])), str(min(self.df['Close'])), str(min(self.df['Adj Close'])), str(min(self.df['Volume']))])
+            thewriter.writerow([str(self.df.iloc[0]['Date']), str(max(self.df['Open'])),
+                                str(max(self.df['High'])), str(max(self.df['Low'])),
+                                str(max(self.df['Close'])), str(max(self.df['Adj Close'])),
+                                str(max(self.df['Volume']))])
+            thewriter.writerow([str(self.df.iloc[-1]['Date']), str(min(self.df['Open'])),
+                                str(min(self.df['High'])), str(min(self.df['Low'])),
+                                str(min(self.df['Close'])), str(min(self.df['Adj Close'])),
+                                str(min(self.df['Volume']))])
         msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
     def save_range_data(self):
         """ saves a csv data with the max min values"""
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
         else:
-            self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
+            self.filenamesave = filedialog.asksaveasfilename(initialdir="/", title="Select file",
+                                                             filetypes=(("csv files", "*.csv"),
+                                                                        ("all files", "*.*")))
             self.savefile()
     def graph(self, graphname):
         """ shows a graph named by the graphname parameter """
@@ -144,6 +155,7 @@ class StockAnalysis():
             self.filename = ""
             msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
     def column_validation(self):
+        """ checks the columns of the inserted csv file """
         if all([item in self.df.columns for item in ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']]):
             msg.showinfo("SUCCESS", "CSV FILE ADDED SUCCESSFULLY")
         else:
@@ -164,7 +176,8 @@ class StockAnalysis():
         """ insert csv function """
         if self.filename == "":
             self.filename = filedialog.askopenfilename(initialdir="/", title="Select csv file",
-                                                       filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
+                                                       filetypes=(("csv files", "*.csv"),
+                                                                  ("all files", "*.*")))
             self.inputvalidation()
         else:
             msg.showerror("ERROR", " A CSV FILE IS ALREADY OPEN")
