@@ -43,7 +43,7 @@ class StockAnalysis():
                                    accelerator='Alt + Q', command=lambda: self.graph('Low'))
         self.show_menu.add_command(label="Show Close Graph",
                                    accelerator='Alt + C', command=lambda: self.graph('Close'))
-        self.show_menu.add_command(label="Show Adj Close Graph", 
+        self.show_menu.add_command(label="Show Adj Close Graph",
                                    accelerator='Alt + D', command=lambda: self.graph('Adj Close'))
         self.show_menu.add_command(label="Show Volume Graph",
                                    accelerator='Alt + B', command=lambda: self.graph('Volume'))
@@ -51,16 +51,16 @@ class StockAnalysis():
         self.range_menu = Menu(self.menu, tearoff=0)
         self.range_menu.add_command(label="Date Range",
                                     accelerator='Ctrl + D', command=lambda: self.range('Date'))
-        self.range_menu.add_command(label="Open Range", 
+        self.range_menu.add_command(label="Open Range",
                                     accelerator='Alt + O', command=lambda: self.range('Open'))
         self.range_menu.add_command(label="High Range",
                                     accelerator='Alt + H', command=lambda: self.range('High'))
         self.range_menu.add_command(label="Low Range",
                                     accelerator='Alt + L', command=lambda: self.range('Low'))
-        self.range_menu.add_command(label="Close Range", 
+        self.range_menu.add_command(label="Close Range",
                                     accelerator='Alt + C', command=lambda: self.range('Close'))
-        self.range_menu.add_command(label="Adj Close Range", 
-                                    accelerator='Alt + A', 
+        self.range_menu.add_command(label="Adj Close Range",
+                                    accelerator='Alt + A',
                                     command=lambda: self.range('Adj Close'))
         self.range_menu.add_command(label="Volume Range",
                                     accelerator='Alt + V', command=lambda: self.range('Volume'))
@@ -144,9 +144,15 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             if rangename == 'Date':
-                msg.showinfo("Date Range", "From: "+str(self.df.iloc[0]['Date']) +"\nTo: " +str(self.df.iloc[-1]['Date']))
+                msg.showinfo("Date Range",
+                             "From: "+str(self.df.iloc[0]['Date']) +
+                             "\nTo: " +str(self.df.iloc[-1]['Date']))
             else:
-                msg.showinfo(str(rangename)+" Range", "Max: " +str(max(self.df[rangename])) +"\nMin: " +str(min(self.df[rangename])))
+                msg.showinfo(str(rangename)+
+                             " Range",
+                             "Max: " +
+                             str(max(self.df[rangename])) +
+                             "\nMin: " +str(min(self.df[rangename])))
     def closef(self):
         """ closes file """
         if self.filename == "":
