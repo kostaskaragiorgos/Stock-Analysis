@@ -234,3 +234,7 @@ else it shows the volume range
 You can show info about the app by using menu About --> About or using Ctrl+i keybind
 
 <p><img src="doc images/About menu/about menu.png" title="about menu"/></p>
+
+An informative message pops up
+
+<p><img src="doc images/About menu/about.png" title="about menu"/></p> 
