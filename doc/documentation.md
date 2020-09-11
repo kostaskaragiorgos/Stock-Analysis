@@ -228,3 +228,9 @@ if no .csv file is imported an informative message pops up
 else it shows the volume range
 
 <p><img src ="doc images/Range menu/volume range.png" title="Volume Range"/> </p>
+
+# About menu
+
+You can show info about the app by using menu About --> About or using Ctrl+i keybind
+
+<p><img src="doc images/About menu/about menu.png" title="about menu"/></p>
