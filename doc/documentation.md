@@ -77,6 +77,10 @@ You press ok to close the app or cancel if you don't want
 
 ## Show Graph Summary
 
+You can show the graph summary using menu Show --> Show Graph Summary or using Ctrl + S keybind
+
+<p><img src="doc images/Show menu/show graph summary.png" title="Show Graph Summary"/></p>
+
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
@@ -86,6 +90,10 @@ else it shows the Graph Summary
 <p><img src = "doc images/Show menu/Graph Summary.png" title="Graph Summary"/> </p>
 
 ## Show csv
+
+You can show the csv  using menu Show --> Show csv or using Alt + S keybind
+
+<p><img src="doc images/Show menu/show csv menu.png" title="Show CSV"/></p>
 
 if no .csv file is imported an informative message pops up
 
@@ -97,16 +105,23 @@ else it shows the Data Frame
 
 ## Show Open Graph
 
+You can show the open graph using menu Show --> Show Open Graph  or using Alt + T keybind
+
+<p><img src="doc images/Show menu/show open.png" title="Show Open Graph"/></p>
+
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
-
 
 else it shows the Open Graph
 
 <p><img src = "doc images/Show menu/open Graph.png" title="Open Graph"/> </p>
 
 ## Show High Graph
+
+You can show the high graph using menu Show --> Show High Graph or using Alt + U keybind
+
+<p><img src="doc images/Show menu/show high.png" title="Show High Graph "/></p>
 
 if no .csv file is imported an informative message pops up
 
@@ -119,6 +134,10 @@ else it shows the High Graph
 
 ## Show Low Graph
 
+You can show the low graph using menu Show --> Show Low Graph or using Alt + Q keybind
+
+<p><img src="doc images/Show menu/show low.png" title="Show Low Graph "/></p>
+
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
@@ -128,6 +147,10 @@ else it shows the Low Graph
 <p><img src = "doc images/Show menu/low graph.png" title="Low Graph"/> </p>
 
 ## Show Close Graph
+
+You can show the close graph using menu Show --> Show Close Graph or using Alt + C keybind
+
+<p><img src="doc images/Show menu/show close.png" title="Show Close Graph "/></p>
 
 if no .csv file is imported an informative message pops up
 
@@ -139,6 +162,10 @@ else it shows the Close Graph
 
 ## Show Adj Close Graph
 
+You can show the adj close graph using menu Show --> Show Adj Close Graph or using Alt + D keybind
+
+<p><img src="doc images/Show menu/adj close.png" title="Show Adj Close Graph "/></p>
+
 if no .csv file is imported an informative message pops up
 
 <p><img src = "doc images/Show menu/no csv file.png" title="No file imported"/> </p>
@@ -148,6 +175,11 @@ else it shows the Adj Close Graph
 <p><img src = "doc images/Show menu/adj close graph.png" title="Adj Close Graph"/> </p>
 
 ## Show Volume Graph
+
+You can show the low graph using menu Show --> Show Volume Graph or using Ctrl + B keybind
+
+<p><img src="doc images/Show menu/show volume graph.png" title="Show Volume Graph "/></p>
+
 
 if no .csv file is imported an informative message pops up
 
