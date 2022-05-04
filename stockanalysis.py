@@ -47,6 +47,7 @@ class StockAnalysis():
                                    accelerator='Alt + D', command=lambda: self.graph('Adj Close'))
         self.show_menu.add_command(label="Show Volume Graph",
                                    accelerator='Alt + B', command=lambda: self.graph('Volume'))
+        self.show_menu.add_command(label="Show Graph Comparison")
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.range_menu = Menu(self.menu, tearoff=0)
         self.range_menu.add_command(label="Date Range",
