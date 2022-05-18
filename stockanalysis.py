@@ -66,6 +66,9 @@ class StockAnalysis():
         self.range_menu.add_command(label="Volume Range",
                                     accelerator='Alt + V', command=lambda: self.range('Volume'))
         self.menu.add_cascade(label="Range", menu=self.range_menu)
+        self.indicatorsmenu = Menu(self.menu, tearoff=0)
+        self.indicatorsmenu.add_command(label="Moving Average")
+        self.menu.add_cascade(label="Indicators", menu=self.indicatorsmenu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
         self.menu.add_cascade(label="About", menu=self.about_menu)
