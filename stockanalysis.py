@@ -1,4 +1,6 @@
 """Analysis of stocks"""
+from decimal import MIN_ETINY
+from itertools import tee
 from tkinter import Menu, messagebox as msg, filedialog, Tk
 import csv
 import pandas as pd
@@ -67,7 +69,12 @@ class StockAnalysis():
                                     accelerator='Alt + V', command=lambda: self.range('Volume'))
         self.menu.add_cascade(label="Range", menu=self.range_menu)
         self.indicatorsmenu = Menu(self.menu, tearoff=0)
-        self.indicatorsmenu.add_command(label="Moving Average")
+        self.typeofmovingavg = Menu(self.indicatorsmenu, tearoff=0)
+        self.typeofplot = Menu(self.typeofmovingavg, tearoff=0)
+        self.typeofplot.add_command(label="Open")
+        self.typeofplot.add_command(label="Close")
+        self.typeofmovingavg.add_cascade(label="Simple Moving Average",menu=self.typeofplot,underline=0)
+        self.indicatorsmenu.add_cascade(label="Moving Average", menu=self.typeofmovingavg, underline=0)
         self.menu.add_cascade(label="Indicators", menu=self.indicatorsmenu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
@@ -76,6 +83,7 @@ class StockAnalysis():
         self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
+
         self.master.bind('<Control-t>', lambda event: self.save_range_data())
         self.master.bind('<Control-o>', lambda event: self.insert_csv())
         self.master.bind('<Alt-s>', lambda event: self.showcsv())
