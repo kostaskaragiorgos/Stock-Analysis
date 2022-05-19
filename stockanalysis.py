@@ -1,6 +1,4 @@
 """Analysis of stocks"""
-from decimal import MIN_ETINY
-from itertools import tee
 from tkinter import Menu, messagebox as msg, filedialog, Tk
 import csv
 import pandas as pd
@@ -73,6 +71,9 @@ class StockAnalysis():
         self.typeofplot = Menu(self.typeofmovingavg, tearoff=0)
         self.typeofplot.add_command(label="Open")
         self.typeofplot.add_command(label="Close")
+        self.typeofplot.add_command(label="High")
+        self.typeofplot.add_command(label="Low")
+        self.typeofplot.add_command(label="Adj_Close")
         self.typeofmovingavg.add_cascade(label="Simple Moving Average",menu=self.typeofplot,underline=0)
         self.indicatorsmenu.add_cascade(label="Moving Average", menu=self.typeofmovingavg, underline=0)
         self.menu.add_cascade(label="Indicators", menu=self.indicatorsmenu)
