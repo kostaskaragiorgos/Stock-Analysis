@@ -73,7 +73,7 @@ class StockAnalysis():
         self.typeofplot.add_command(label="Close", command=lambda: self.movingaverage("Close"))
         self.typeofplot.add_command(label="High", command=lambda: self.movingaverage("High"))
         self.typeofplot.add_command(label="Low", command=lambda: self.movingaverage("Low"))
-        self.typeofplot.add_command(label="Adj_Close")
+        self.typeofplot.add_command(label="Adj_Close", command=lambda: self.movingaverage("Adj Close"))
         self.typeofmovingavg.add_cascade(label="Simple Moving Average",menu=self.typeofplot,underline=0)
         self.indicatorsmenu.add_cascade(label="Moving Average", menu=self.typeofmovingavg, underline=0)
         self.menu.add_cascade(label="Indicators", menu=self.indicatorsmenu)
