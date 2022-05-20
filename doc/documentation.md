@@ -261,6 +261,20 @@ else it shows the volume range
 
 <p><img src ="doc images/Range menu/volume range.png" title="Volume Range"/> </p>
 
+# Indicators
+
+## Moving Average
+
+### Simple Moving Average
+
+#### Open
+
+#### CLose
+
+#### High
+
+#### Low 
+
 # About menu
 
 You can show info about the app by using menu About --> About or using Ctrl+i keybind
