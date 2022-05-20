@@ -70,7 +70,7 @@ class StockAnalysis():
         self.typeofmovingavg = Menu(self.indicatorsmenu, tearoff=0)
         self.typeofplot = Menu(self.typeofmovingavg, tearoff=0)
         self.typeofplot.add_command(label="Open", command=lambda: self.movingaverage("Open"))
-        self.typeofplot.add_command(label="Close")
+        self.typeofplot.add_command(label="Close", command=lambda: self.movingaverage("Close"))
         self.typeofplot.add_command(label="High")
         self.typeofplot.add_command(label="Low")
         self.typeofplot.add_command(label="Adj_Close")
