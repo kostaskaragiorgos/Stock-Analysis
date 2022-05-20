@@ -69,7 +69,7 @@ class StockAnalysis():
         self.indicatorsmenu = Menu(self.menu, tearoff=0)
         self.typeofmovingavg = Menu(self.indicatorsmenu, tearoff=0)
         self.typeofplot = Menu(self.typeofmovingavg, tearoff=0)
-        self.typeofplot.add_command(label="Open")
+        self.typeofplot.add_command(label="Open", command=lambda: self.)
         self.typeofplot.add_command(label="Close")
         self.typeofplot.add_command(label="High")
         self.typeofplot.add_command(label="Low")
@@ -126,6 +126,10 @@ class StockAnalysis():
                                 str(min(self.df['Close'])), str(min(self.df['Adj Close'])),
                                 str(min(self.df['Volume']))])
         msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
+
+    def movingaverage(self, type):
+        if self.filename == "":
+            msg.showerror("ERROR", "NO CSV FILE")
     def save_range_data(self):
         """ saves a csv data with the max min values"""
         if self.filename == "":
