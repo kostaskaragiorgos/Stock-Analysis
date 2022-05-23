@@ -1,5 +1,5 @@
 """Analysis of stocks"""
-from tkinter import Menu, messagebox as msg, filedialog, Tk
+from tkinter import Menu, messagebox as msg, filedialog, Tk, simpledialog
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -127,9 +127,17 @@ class StockAnalysis():
                                 str(min(self.df['Volume']))])
         msg.showinfo("SUCCESS", "CSV FILE SAVED SUCCESSFULLY")
 
-    def movingaverage(self, type):
+    def movingaverage(self, gtype):
         if self.filename == "":
             msg.showerror("ERROR", "NO CSV FILE")
+        else:
+            try:
+                days = simpledialog.askinteger("Number of Days", "Enter the number of days")
+            except:
+                days = 50
+            self.df[gtype].plot(title=gtype+" Graph")
+            self.df.rolling(window=days).mean()[gtype].plot()
+            plt.show()
     def save_range_data(self):
         """ saves a csv data with the max min values"""
         if self.filename == "":
