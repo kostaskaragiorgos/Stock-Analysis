@@ -132,7 +132,7 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO CSV FILE")
         else:
             try:
-                days = simpledialog.askinteger("Number of Days", "Enter the number of days")
+                days = simpledialog.askinteger("Number of Days", "Enter the number of days", minvalue = 0, maxvalue = len(self.df))
             except:
                 days = 50
             self.df[gtype].plot(title=gtype+" Graph")
