@@ -73,7 +73,7 @@ class StockAnalysis():
         self.typeofplot.add_command(label="Close", accelerator='Ctrl+Q',command=lambda: self.movingaverage("Close"))
         self.typeofplot.add_command(label="High", accelerator='Ctrl+B',command=lambda: self.movingaverage("High"))
         self.typeofplot.add_command(label="Low", accelerator= 'Ctrl+H',command=lambda: self.movingaverage("Low"))
-        self.typeofplot.add_command(label="Adj_Close", accelerator='' ,command=lambda: self.movingaverage("Adj Close"))
+        self.typeofplot.add_command(label="Adj_Close", accelerator='Alt+I' ,command=lambda: self.movingaverage("Adj Close"))
         self.typeofmovingavg.add_cascade(label="Simple Moving Average",menu=self.typeofplot,underline=0)
         self.indicatorsmenu.add_cascade(label="Moving Average", menu=self.typeofmovingavg, underline=0)
         self.menu.add_cascade(label="Indicators", menu=self.indicatorsmenu)
@@ -84,6 +84,8 @@ class StockAnalysis():
         self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
+        
+        self.master.bind('<Alt-i>', lambda event: self.movingaverage("Adj Close"))
         self.master.bind('<Control-h>', lambda event: self.movingaverage("Low"))
         self.master.bind('<Control-b>', lambda event: self.movingaverage("High"))
         self.master.bind('<Control-u>', lambda event: self.movingaverage("Open"))
