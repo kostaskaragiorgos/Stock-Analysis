@@ -69,7 +69,7 @@ class StockAnalysis():
         self.indicatorsmenu = Menu(self.menu, tearoff=0)
         self.typeofmovingavg = Menu(self.indicatorsmenu, tearoff=0)
         self.typeofplot = Menu(self.typeofmovingavg, tearoff=0)
-        self.typeofplot.add_command(label="Open", command=lambda: self.movingaverage("Open"))
+        self.typeofplot.add_command(label="Open", accelerator='Ctrl+U', command=lambda: self.movingaverage("Open"))
         self.typeofplot.add_command(label="Close", command=lambda: self.movingaverage("Close"))
         self.typeofplot.add_command(label="High", command=lambda: self.movingaverage("High"))
         self.typeofplot.add_command(label="Low", command=lambda: self.movingaverage("Low"))
@@ -84,7 +84,8 @@ class StockAnalysis():
         self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
-
+        
+        self.master.bind('<Control-u>', lambda event: self.movingaverage("Open"))
         self.master.bind('<Control-t>', lambda event: self.save_range_data())
         self.master.bind('<Control-o>', lambda event: self.insert_csv())
         self.master.bind('<Alt-s>', lambda event: self.showcsv())
