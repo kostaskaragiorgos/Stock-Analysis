@@ -117,6 +117,10 @@ class StockAnalysis():
             msg.showerror("ERROR", "NO FILE SAVED")
         else:
             self.saverange()
+    
+    def savepdf(self):
+        pass
+
     def saverange(self):
         """ save ranges to a csv file """
         with open(str(self.filenamesave)+'.csv', 'a+') as f:
